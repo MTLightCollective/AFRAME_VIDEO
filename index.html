@@ -2,11 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Aframe 360 Video</title>
+  <title>Aframe 360 stereo Video</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 </head>
 <body>
-  <a-scene>
+  <a-scene >
+    <a-assets>
+        <video id="video" loop="true" src="assets/progressive.mp4"> </video>
+    </a-assets>
+      
+    <a-videosphere src="#video"></a-videosphere>
     
   </a-scene>
 </body>

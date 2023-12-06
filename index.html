@@ -2,17 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Aframe 360 stereo Video</title>
+  <title>Aframe 360 Video</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 </head>
 <body>
-  <a-scene >
+  <a-scene>
     <a-assets>
-        <video id="video" loop="true" src="assets/progressive.mp4"> </video>
+      <video id="video" loop="true" src="assets/progressive.mp4"></video>
     </a-assets>
-      
-    <a-videosphere src="#video"></a-videosphere>
-    
+
+    <a-videosphere id="videosphere" src="#video"></a-videosphere>
+
+    <!-- 3D Play Button -->
+    <a-plane id="playButton3D" position="0 1.5 -3" rotation="0 0 0" width="1" height="0.5" color="#FF0000" play-pause-video>
+      <a-text value="Play" align="center" color="#FFFFFF" position="0 0 0.01"></a-text>
+    </a-plane>
+
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
   </a-scene>
+
+  <script>
+    AFRAME.registerComponent('play-pause-video', {
+      init: function () {
+        var videosphereEl = document.querySelector('#videosphere');
+        this.el.addEventListener('click', function () {
+          var video = videosphereEl.components.material.material.map.image;
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

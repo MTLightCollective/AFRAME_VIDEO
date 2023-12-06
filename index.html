@@ -14,29 +14,13 @@
     <a-videosphere id="videosphere" src="#video"></a-videosphere>
 
     <!-- 3D Play Button -->
-    <a-plane id="playButton3D" position="0 1.5 -3" rotation="0 0 0" width="1" height="0.5" color="#FF0000" play-pause-video>
+    <a-plane id="playButton3D" class="interactable" position="0 1.5 -3" rotation="0 0 0" width="1" height="0.5" color="#FF0000" play-pause-video>
       <a-text value="Play" align="center" color="#FFFFFF" position="0 0 0.01"></a-text>
     </a-plane>
 
-    <a-camera>
-      <a-cursor></a-cursor>
-    </a-camera>
+    <a-entity camera look-controls="reverseMouseDrag:true" position="0 1.6 0" cursor="rayOrigin:mouse" raycaster="objects: .interactable"></a-entity>
   </a-scene>
 
-  <script>
-    AFRAME.registerComponent('play-pause-video', {
-      init: function () {
-        var videosphereEl = document.querySelector('#videosphere');
-        this.el.addEventListener('click', function () {
-          var video = videosphereEl.components.material.material.map.image;
-          if (video.paused) {
-            video.play();
-          } else {
-            video.pause();
-          }
-        });
-      }
-    });
-  </script>
+  <script src="src/play-pause-video-component.js"></script>
 </body>
 </html>

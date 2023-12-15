@@ -1,7 +1,7 @@
 AFRAME.registerComponent('play-pause-video', {
     playBool:true,
     schema: {
-      target: {type: 'selector', default:'#videosphere'}
+      target: {type: 'selector', default:'#videosphere'},
     },
     init: function () {
       this.playBool = true

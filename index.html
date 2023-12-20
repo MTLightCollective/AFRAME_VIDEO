@@ -32,12 +32,26 @@
       <a-plane id="temoin" height="0.5" width="1" position="-0.5 0 0.001" scale="0 1 1" progress-bar="target:#videosphere;attribute:false"></a-plane>
     </a-plane>
 
-    
-
+    <!-- Camera -->
     <a-entity camera look-controls="reverseMouseDrag:true" position="0 1.6 0" cursor="rayOrigin:mouse" raycaster="objects: .interactable"></a-entity>
+
+    <!-- Hand Tracking -->
+    <a-entity id="leftHand" 
+      hand-controls="hand: left; handModelStyle: toon; color: #ffcccc"
+      pointer-component
+      raycaster="objects: .interactable; showLine:false;enabled:false; direction:0 -1 0;origin: 0 0 -0.03"></a-entity>
+    ></a-entity>
+    <a-entity id="rightHand" 
+      hand-controls="hand: right; handModelStyle: toon; color: #ffcccc"
+      pointer-component
+      raycaster="objects: .interactable;showLine:false;enabled:false;direction:0 -1 0;origin: 0 0 -0.03"></a-entity>
+    ></a-entity>
+
   </a-scene>
 
   <script src="src/play-pause-video-component.js"></script>
   <script src="src/progress-bar-component.js"></script>
+  <script src="src/logger-component.js"></script>
+  <script src="src/pointer-component.js"></script>
 </body>
 </html>

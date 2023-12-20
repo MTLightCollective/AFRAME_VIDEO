@@ -13,7 +13,7 @@ AFRAME.registerComponent('progress-bar', {
         //this.el.setAttribute('geometry', 'width', percent);
         //modifier scale.x et position.x
         //entityEl.object3D.position.set(1, 2, -3)
-        console.log(percent);
+        //console.log(percent);
 
         if(this.data.attribute){
             this.el.setAttribute(

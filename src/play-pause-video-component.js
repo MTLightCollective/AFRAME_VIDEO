@@ -13,11 +13,16 @@ AFRAME.registerComponent('play-pause-video', {
     clickEvent:function (event) {
         console.log("clicked",event)
         var video = this.data.target.components.material.material.map.image;
+        var txt = document.getElementById('buttontext');
         if(this.playBool == false)return;
         if (video.paused) {
           video.play();
+          txt.setAttribute('value', 'Pause');
+          txt.setAttribute('color', 'black');
         } else {
           video.pause();
+          txt.setAttribute('value', 'Play');
+          txt.setAttribute('color', 'white');
         }
     },
     remove: function () {
